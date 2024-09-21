@@ -69,7 +69,9 @@ class Bank {
 
     public static void menu(Bank account) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("1. Transfer Money\n2. Deposit\n3. Withdraw\n4. Show Current Balance");
+        boolean m = true;
+        while(m){
+        System.out.println("1. Transfer Money\n2. Deposit\n3. Withdraw\n4. Show Current Balance\n5. Exit");
         int choice = scanner.nextInt();
         switch (choice) {
             case 1:
@@ -106,8 +108,13 @@ class Bank {
             case 4:
                 System.out.println("Your current balance is Rs." + account.getBalance());
                 break;
+            case 5:
+                System.out.println("Exiting to main menu...");
+                m=false;
+                break;
             default:
                 System.out.println("Invalid Choice!!");
         }
+      }
     }
 }

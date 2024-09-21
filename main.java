@@ -32,7 +32,7 @@ public class main {
                     }
                     break;
                 case 3:
-                    System.out.println("Enter Account ID to update     details:");
+                    System.out.println("Enter Account ID to update details:");
                     int y = scanner.nextInt();
                     scanner.nextLine();
                     Bank account3 = Bank.getAccount(y);

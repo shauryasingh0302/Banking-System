@@ -1,11 +1,12 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class main {
+public class main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        while(true){
-            System.out.println("Select an option to start:\n1-Create Account\n2-Use Account\n3-Update Account\n4-Delete Account");
+        boolean f = true;
+        while (f) {
+            System.out.println("Select an option to start:\n1-Create Account\n2-Use Account\n3-Update Account\n4-Delete Account\n5.Exit");
             int inputChoice = scanner.nextInt();
             switch (inputChoice) {
                 case 1:
@@ -40,8 +41,9 @@ class main {
                     if (account3.authenticate(pass3)) {
                         System.out.println("Enter New Name:\nLeave Empty to skip");
                         String a = scanner.nextLine();
-                        if (!a.equals("")) {Bank.update(account3, a);
-                        System.out.println("Name updated Successfully!!");
+                        if (!a.equals("")) {
+                            Bank.update(account3, a);
+                            System.out.println("Name updated Successfully!!");
                         }
                     } else {
                         System.out.println("Incorrect Account Id or Password\n Please try again!!");
@@ -55,10 +57,15 @@ class main {
                     System.out.println("Hello " + account4.getName() + " please enter Password to proceed:");
                     String pass4 = scanner.nextLine();
                     if (account4.authenticate(pass4)) {
-                    Bank.delete(input4);
+                        Bank.delete(input4);
                     } else {
                         System.out.println("Incorrect Account Id or Password\n Please try again!!");
                     }
+                    break;
+                case 5:
+                    System.out.println("Exiting...");
+
+                    f = false;
                     break;
                 default:
                     System.out.println("Invalid Choice!!");
